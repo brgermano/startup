@@ -12,19 +12,21 @@ import java.util.List;
 @RestController
 @RequestMapping("empresa")
 public class EmpresaResource {
-
     @Autowired
     private EmpresaRepository empresaRepository;
-
     @GetMapping
     public List<Empresa> listar() { return empresaRepository.findAll(); }
 
     @GetMapping("{codigo}")
-    public Empresa buscar(@PathVariable int codigo) { return empresaRepository.findById(codigo).get(); }
+    public Empresa buscar(@PathVariable int codigo) {
+        return empresaRepository.findById(codigo).get();
+    }
 
     @ResponseStatus(code = HttpStatus.CREATED)
     @PostMapping
-    public Empresa cadastrar(@RequestBody Empresa empresa) { return empresaRepository.save(empresa); }
+    public Empresa cadastrar(@RequestBody Empresa empresa) {
+        return empresaRepository.save(empresa);
+    }
     @PutMapping("{id}")
     public Empresa atualizar(@RequestBody Empresa empresa, @PathVariable int id) {
         empresa.setCodigo(id);
@@ -32,12 +34,7 @@ public class EmpresaResource {
     }
 
     @DeleteMapping("{codigo}")
-    public void remover(@PathVariable int codigo) { empresaRepository.deleteById(codigo); }
-
-    /*
-    @GetMapping("pesquisa")
-    public List<Empresa> buscar(@RequestParam(required = false) String nomeFantasia, @RequestParam(defaultValue = "false") boolean novo) {
-        return nomeFantasia != null ? empresaRepository.findByNomeAndNovo(nomeFantasia, novo) : empresaRepository.findByNovo(novo);
+    public void remover(@PathVariable int codigo) {
+        empresaRepository.deleteById(codigo);
     }
-     */
 }
