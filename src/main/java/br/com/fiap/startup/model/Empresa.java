@@ -1,4 +1,4 @@
-package model;
+package br.com.fiap.startup.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
