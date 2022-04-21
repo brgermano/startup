@@ -41,7 +41,7 @@ public class Pedido {
     }
 
     public void setcodigoEmpresa(int codigoEmpresa) {
-        codigoEmpresa = codigoEmpresa;
+        this.codigoEmpresa = codigoEmpresa;
     }
 
     public int getQuantidadeCredito() {
